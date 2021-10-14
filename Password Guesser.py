@@ -1,6 +1,6 @@
 import random
 import pyautogui
-
+import time
 
 chars = "1234567890"
 chars_list = list(chars)
@@ -11,6 +11,7 @@ guess_password = ""
 
 number = 0
 
+start_time = time.perf_counter()
 
 while(guess_password != password):
     guess_password = random.choices(chars_list, k=len(password))
@@ -23,4 +24,8 @@ while(guess_password != password):
         
         break
 
+end_time = time.perf_counter()    
+dt = end_time - start_time
+
+print(f"Calculation time: {dt}")   
 print(f"The number of tries is {number}")
